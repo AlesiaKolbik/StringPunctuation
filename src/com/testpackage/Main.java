@@ -2,23 +2,23 @@ package com.testpackage;
 
 public class Main {
 
-    public static void main(String[] args) {
-	    String s1="Текст, с несколькими запятыми И точками";
-	    int n=0;
-	    for(int i=0;i<s1.length();i++) {
-	        char s=s1.charAt(i);
-	        if(s==','||s=='.'||s=='?'||s=='!'){
-	            n++;
-            }
-        }
-		if(n==1||n%10==1&&n!=11) {
-			System.out.print("В тексте " + '"' + s1 + '"' + " " + n + " знак препинания.");
+	public static void main(String[] args) {
+		String sourceData = "Текст, с несколькими? запятыми,, И точками";
+		int countPunctuation = 0;
+		for (int i = 0; i < sourceData.length(); i++) {
+			char symbol = sourceData.charAt(i);
+			if (symbol == ',' || symbol == '.' || symbol == '?' || symbol == '!') {
+				countPunctuation++;
+			}
 		}
-		if(n>1&&n<5||n%10>1&&n%10<5&&n!=12&&n!=13&&n!=14) {
-			System.out.print("В тексте " + '"' + s1 + '"' + " " + n + " знака препинания.");
+		if (countPunctuation == 1 || countPunctuation % 10 == 1 && countPunctuation != 11) {
+			System.out.print("В тексте " + '"' + sourceData + '"' + " " + countPunctuation + " знак препинания.");
+		}
+		else if (countPunctuation > 1 && countPunctuation < 5 || countPunctuation % 10 > 1 && countPunctuation % 10 < 5 && countPunctuation != 12 && countPunctuation != 13 && countPunctuation != 14) {
+			System.out.print("В тексте " + '"' + sourceData + '"' + " " + countPunctuation + " знака препинания.");
 		}
 		else {
-			System.out.print("В тексте " + '"' + s1 + '"' + " " + n + " знаков препинания.");
+			System.out.print("В тексте " + '"' + sourceData + '"' + " " + countPunctuation + " знаков препинания.");
 		}
-    }
+	}
 }
